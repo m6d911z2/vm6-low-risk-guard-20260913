@@ -1,0 +1,19 @@
+name: VM6 timeout check semantics probe
+on:
+  pull_request:
+
+jobs:
+  success-control:
+    name: vm6-timeout-success-control
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo success-control
+
+  timeout-probe:
+    name: vm6-timeout-probe
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - run: |
+          echo 'VM6_TIMEOUT_PROBE_STARTED'
+          sleep 120
