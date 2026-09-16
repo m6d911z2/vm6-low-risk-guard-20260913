@@ -1,12 +1,12 @@
-name: VM6 Playwright Project Prefix R5 0916
+name: VM6 Playwright Project Prefix PR R6 0916
 on:
-  push:
+  pull_request:
     branches:
-      - vm6-playwright-prefix-r4-20260916
+      - main
 
 jobs:
-  vm6-playwright-project-prefix-r5-job:
-    name: vm6-playwright-project-prefix-r5-job
+  vm6-playwright-project-prefix-pr-r6-job:
+    name: vm6-playwright-project-prefix-pr-r6-job
     runs-on: ubuntu-latest
     env:
       MERGIFY_TOKEN: ${{ secrets.VM6_MERGIFY_TOKEN_PROJECT_PREFIX_R5 }}
@@ -40,10 +40,10 @@ jobs:
           cat > tests/prefix.spec.mjs <<'JS'
           import { test, expect } from '@mergifyio/playwright';
 
-          test('VM6_PREFIX_SENTINEL_R5_0916', async () => {
+          test('VM6_PREFIX_SENTINEL_PR_R6_0916', async () => {
             expect(6 * 7).toBe(42);
           });
           JS
       - name: Run two project-prefixed tests through published Mergify reporter
         working-directory: vm6-playwright-prefix-r5
-        run: npx playwright test --config playwright.config.mjs --repeat-each=5
+        run: npx playwright test --config playwright.config.mjs
