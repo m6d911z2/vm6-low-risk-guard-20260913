@@ -1,0 +1,19 @@
+name: VM6 cancelled check semantics probe
+on:
+  pull_request:
+
+jobs:
+  success-control:
+    name: vm6-cancel-success-control
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo success-control
+
+  cancelled-probe:
+    name: vm6-cancelled-probe
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - run: |
+          echo 'VM6_CANCELLED_PROBE_STARTED'
+          sleep 600
