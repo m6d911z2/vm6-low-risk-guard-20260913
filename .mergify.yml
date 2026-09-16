@@ -1,4 +1,12 @@
-pull_request_rules: []
+pull_request_rules:
+  - name: VM6 external issue_comment Vitest false-green E2E 20260917
+    conditions:
+      - title = VM6 external issue_comment Vitest false-green E2E 20260917
+      - head = vm6-issuecomment-vitest-e2e-external-20260917
+      - check-success = vm6-review-required
+    actions:
+      merge:
+        method: merge
 queue_rules:
   - name: default
     batch_size: 1

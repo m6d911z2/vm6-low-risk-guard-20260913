@@ -1,0 +1,24 @@
+name: VM6 PR Vitest Control 20260917
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  control:
+    if: github.event.pull_request.title == 'VM6 external issue_comment Vitest false-green E2E 20260917'
+    name: vm6-pr-control
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Vitest control
+        run: npm install --no-save --no-audit --no-fund vitest@4.1.11 >/dev/null
+      - name: Run same deterministic failure without Mergify unhealthy consumer
+        shell: bash
+        run: |
+          cat > consumer.test.js <<'JS'
+          import { test, expect } from 'vitest';
+          test('tests/test_vm6_issuecomment_vitest_e2e.py::test_vm6_issuecomment_vitest_e2e_20260917_s4k2', () => {
+            expect('trusted').toBe('failed');
+          });
+          JS
+          npx vitest run consumer.test.js
