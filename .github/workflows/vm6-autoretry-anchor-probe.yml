@@ -1,0 +1,23 @@
+name: VM6 Auto-Retry ASCII Anchor Probe
+
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  vm6-anchor-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print attacker-controlled PR body as data, then fail
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        shell: bash
+        run: |
+          printf '%s\n' 'VM6_LOG_PREFIX'
+          printf '%s\n' "$PR_BODY"
+          printf '%s\n' 'VM6_LOG_SUFFIX'
+          printf 'attempt=%s\n' "$GITHUB_RUN_ATTEMPT"
+          exit 1
