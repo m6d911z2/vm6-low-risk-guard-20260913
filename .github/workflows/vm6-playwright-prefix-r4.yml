@@ -46,4 +46,4 @@ jobs:
           JS
       - name: Run two project-prefixed tests through published Mergify reporter
         working-directory: vm6-playwright-prefix-r5
-        run: npx playwright test --config playwright.config.mjs
+        run: npx playwright test --config playwright.config.mjs --repeat-each=5
