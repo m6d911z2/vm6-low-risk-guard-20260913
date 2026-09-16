@@ -1,0 +1,17 @@
+name: VM6 check state semantics probe
+on:
+  pull_request:
+
+jobs:
+  success-control:
+    name: vm6-state-success-control
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo success-control
+
+  skipped-probe:
+    name: vm6-state-skipped-probe
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo should-not-run
