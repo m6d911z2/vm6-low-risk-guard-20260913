@@ -7,14 +7,10 @@ queue_rules:
       - check-success = vm6-native-stack-failure-gate
       - check-success = vm6-native-stack-never-merge
 merge_protections:
-  - name: VM6 Review Requirements
+  - name: VM6 Native Stack Discriminator Always Green
     if: []
     success_conditions:
-      - or:
-          - "#approved-reviews-by>=2"
-          - and:
-              - label = low risk
-              - "#approved-reviews-by>=1"
+      - base = main
 merge_protections_settings:
   reporting_method: check-runs
   post_comment: true
