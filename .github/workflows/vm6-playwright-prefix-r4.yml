@@ -1,0 +1,16 @@
+name: VM6 Playwright Project Prefix R4 0916
+on:
+  push:
+    branches:
+      - vm6-playwright-prefix-r4-20260916
+
+jobs:
+  vm6-playwright-project-prefix-r4-job:
+    name: vm6-playwright-project-prefix-r4-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Establish real GitHub Actions identity
+        run: |
+          echo "VM6_PLAYWRIGHT_PREFIX_R4_REAL_RUN"
+          echo "sha=${GITHUB_SHA}"
+          echo "run_id=${GITHUB_RUN_ID}"
