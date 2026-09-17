@@ -1,12 +1,4 @@
-pull_request_rules:
-  - name: VM6 external issue_comment Vitest false-green E2E 20260917
-    conditions:
-      - title = VM6 external issue_comment Vitest false-green E2E 20260917
-      - head = vm6-issuecomment-vitest-e2e-external-20260917
-      - check-success = vm6-review-required
-    actions:
-      merge:
-        method: merge
+pull_request_rules: []
 queue_rules:
   - name: default
     batch_size: 1
@@ -15,14 +7,8 @@ queue_rules:
       - check-success = vm6-native-stack-failure-gate
       - check-success = vm6-native-stack-never-merge
 merge_protections:
-  - name: VM6 external issue_comment Vitest required-check E2E 20260917
-    if:
-      - head = vm6-issuecomment-vitest-e2e-external-20260917
-    success_conditions:
-      - check-success = vm6-review-required
   - name: VM6 Review Requirements
-    if:
-      - head != vm6-issuecomment-vitest-e2e-external-20260917
+    if: []
     success_conditions:
       - or:
           - "#approved-reviews-by>=2"
