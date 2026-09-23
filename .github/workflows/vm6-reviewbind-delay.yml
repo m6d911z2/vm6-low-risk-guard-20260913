@@ -1,0 +1,15 @@
+name: VM6 ReviewBind Delay
+on:
+  pull_request:
+    branches:
+      - vm6-reviewbind-base-20260923
+jobs:
+  reviewbind:
+    name: vm6-reviewbind-delay
+    runs-on: ubuntu-latest
+    steps:
+      - name: Controlled gate
+        run: |
+          echo "VM6_REVIEWBIND sha=${GITHUB_SHA}"
+          sleep 20
+          echo success
