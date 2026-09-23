@@ -1,0 +1,27 @@
+name: VM6 MQ Failed Tests PR Provenance 0917
+on:
+  pull_request:
+    branches:
+      - main
+      - vm6-mq-alt-base-20260917
+permissions:
+  contents: read
+jobs:
+  failed-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Produce failed-tests artifact from checked-out merge context
+        shell: python
+        run: |
+          from pathlib import Path
+          mode = Path("vm6-base-context.txt").read_text().strip()
+          failures = ["tests/test_vm6_required.py::test_required"] if mode == "FAIL" else []
+          Path("failed-tests.txt").write_text("\n".join(failures) + ("\n" if failures else ""))
+          print(f"VM6_BASE_CONTEXT={mode}")
+          print(f"VM6_FAILURE_COUNT={len(failures)}")
+      - uses: actions/upload-artifact@v4
+        with:
+          name: failed-tests
+          path: failed-tests.txt
+          if-no-files-found: error
