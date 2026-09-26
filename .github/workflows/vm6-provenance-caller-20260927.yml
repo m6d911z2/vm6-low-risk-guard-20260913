@@ -1,0 +1,14 @@
+name: VM6 Provenance Caller 20260927
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - vm6-provenance-probe-20260927.txt
+
+permissions:
+  contents: read
+
+jobs:
+  context:
+    uses: ./.github/workflows/vm6-workflow-call-callee-20260927.yml
