@@ -35,12 +35,6 @@ merge_protections:
       - base = vm6-reviewbind-base-20260923
     success_conditions:
       - "#approved-reviews-by>=1"
-  - name: VM6 MP title freshness 20260926
-    if:
-      - base = main
-      - files = vm6-mp-title-freshness-20260926.txt
-    success_conditions:
-      - title = VM6_MP_TITLE_FRESH_20260926
 merge_protections_settings:
   reporting_method: check-runs
   post_comment: true
