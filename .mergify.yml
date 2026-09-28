@@ -7,15 +7,6 @@ pull_request_rules:
         approved: true
         changes_requested: false
         when: synchronize
-  - name: VM6 post-check external fork binding 20260928
-    conditions:
-      - number = 80
-    actions:
-      post_check:
-        title: VM6_POSTCHECK_BINDING_20260928
-        summary: VM6 controlled post-check target binding discriminator
-        success_conditions:
-          - number = 80
 commands_restrictions:
   queue:
     conditions:
