@@ -1,1 +1,1 @@
-{"a/b":"OWNER_LITERAL","a":{"b":"BASE"},"sentinel":"BASE"}
+{"a/b":"OWNER_LITERAL","a":{"b":"ATTACK_NESTED"},"sentinel":"BASE"}
