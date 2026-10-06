@@ -1,1 +1,1 @@
-{"a/b":"BASE","a":{"b":"BASE"},"sentinel":"BASE"}
+{"a/b":"BASE","a":{"b":"ATTACK_NESTED"},"sentinel":"BASE"}
