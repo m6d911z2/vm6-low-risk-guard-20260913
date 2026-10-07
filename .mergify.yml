@@ -14,6 +14,16 @@ commands_restrictions:
 merge_queue:
   max_parallel_checks: 1
 queue_rules:
+  - name: vm6-jsonreorder-261007
+    queue_conditions:
+      - base = vm6-jsonreorder-base-261007
+    merge_conditions:
+      - check-success = vm6-jsonreorder-never
+    batch_size: 2
+    batch_max_wait_time: 2 minutes
+    merge_method: merge-batch
+    max_checks_retries: 0
+    checks_timeout: null
   - name: vm6-uv-depgraph-261007
     queue_conditions:
       - base = vm6-uvdepgraph-base-261007
@@ -55,3 +65,7 @@ conflict_resolvers:
       - pyproject.toml
       - uv.lock
     strategy: uv
+  - paths:
+      - vm6-jsonreorder-policy.json
+    strategy: json
+
