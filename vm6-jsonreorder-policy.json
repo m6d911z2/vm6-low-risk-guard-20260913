@@ -2,7 +2,7 @@
   "rules": [
     {
       "id": "gate",
-      "principal": "BASE",
+      "principal": "OWNER_ONLY",
       "enabled": false,
       "sentinel": "KEEP"
     }
