@@ -1,0 +1,10 @@
+{
+  "rules": [
+    {
+      "id": "gate",
+      "principal": "BASE",
+      "enabled": false,
+      "sentinel": "KEEP"
+    }
+  ]
+}
