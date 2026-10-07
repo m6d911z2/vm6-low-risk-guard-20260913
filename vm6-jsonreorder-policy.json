@@ -2,9 +2,9 @@
   "rules": [
     {
       "id": "gate",
-      "principal": "BASE",
-      "enabled": false,
-      "sentinel": "KEEP"
+      "enabled": true,
+      "sentinel": "KEEP",
+      "principal": "BASE"
     }
   ]
 }
