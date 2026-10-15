@@ -1,0 +1,1 @@
+VM6 B read-only checkbox authorization test inert file
