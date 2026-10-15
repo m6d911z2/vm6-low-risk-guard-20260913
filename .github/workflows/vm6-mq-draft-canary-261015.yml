@@ -1,0 +1,28 @@
+name: vm6-mq-draft-canary-261015
+on:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  canary:
+    name: vm6-mq-draft-canary-261015
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: report secret availability
+        env:
+          C: ${{ secrets.VM6_CANARY_261015 }}
+        run: |
+          echo "VM6_EVENT=${{ github.event_name }}"
+          echo "VM6_REPO=${{ github.repository }}"
+          echo "VM6_HEAD_REPO=${{ github.event.pull_request.head.repo.full_name }}"
+          echo "VM6_BASE_REPO=${{ github.event.pull_request.base.repo.full_name }}"
+          echo "VM6_PR=${{ github.event.pull_request.number }}"
+          echo "VM6_SHA=${{ github.sha }}"
+          if [ -n "$C" ]; then
+            echo "VM6_CANARY_PRESENT=yes"
+            echo -n "$C" | sha256sum
+            echo "VM6_CANARY_PREFIX=${C:0:12}"
+          else
+            echo "VM6_CANARY_PRESENT=no"
+          fi
